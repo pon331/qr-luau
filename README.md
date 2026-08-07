@@ -1,5 +1,5 @@
 # qr-luau
-Luau module for encoding data in QR-Code 
+Luau module for encoding data to QR-Code 
 
 # Features
 - Native codegen: `--!native`
