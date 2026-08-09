@@ -27,7 +27,7 @@ Can be `"Auto"`, `"Numeric"`, `"Alphanumeric"`, `"Byte"` and `"Kanji"`
 
 `Byte` - Can encode any 8-bit data
 
-`Kanji` - Can encode UTF-8 chars (which are encodable in Shift-JIS) characters
+`Kanji` - Can encode UTF-8 chars (which are encodable in Shift-JIS)
 
 
 
