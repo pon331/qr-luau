@@ -48,7 +48,7 @@ QR-Code encoding options
   
 `BlockSize` - Pixels per module side in `Encode` output. Default: `4`.
 
-`Margin` - quiet zone width in modules, added on every side. Default: `4`
+`Margin` - Quiet zone width in modules, added on every side. Default: `4`
   
 ## `QR.Encode(Data: buffer, Options: EncodeOptions?) -> (buffer, number, number)`
 Encodes `Data`  into a QR-Code and returns RGBA pixels buffer and its dimensions
