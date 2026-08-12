@@ -40,13 +40,13 @@ QR-Code encoding options
 
 `Mask` - Mask pattern selection. Default: `-1`
 
-`Mode` - Encode mode. Default: `"Auto"`.
+`Mode` - Encode mode. Default: `"Auto"`
 
 `BoostECC` - After the version is chosen, the EC level is raised (M -> Q -> H) as far as
   the data still fits at no size cost, since smaller EC blocks leave unused room.
-  Default `true`. Set to `false` when you need the exact requested level
+  Default: `true`. Set to `false` when you need the exact requested level
   
-`BlockSize` - Pixels per module side in `Encode` output. Default: `4`.
+`BlockSize` - Pixels per module side in `Encode` output. Default: `4`
 
 `Margin` - Quiet zone width in modules, added on every side. Default: `4`
   
