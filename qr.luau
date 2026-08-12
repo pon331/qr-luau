@@ -2058,7 +2058,5 @@ end
 	return Modules
 end
 
-return table.freeze({
-	Encode = Encode,
-	Matrix = Matrix,
-})
+export const Encode = Encode
+export const Matrix = Matrix
