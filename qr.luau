@@ -964,10 +964,10 @@ end
 	local J = 0
 	local Off = InOff
 	while J + 32 <= Len do
-		local Acc = buffer.readu32(Src, Off)
+		const Acc = buffer.readu32(Src, Off)
 		Off += 4
 		for K = 0, 7 do
-			local N = bit32.band(bit32.rshift(Acc, K * 4), 15)
+			const N = bit32.band(bit32.rshift(Acc, K * 4), 15)
 			buffer.writeu32(Dst, DstOff + J + K * 4, bit32.bor(
 				bit32.band(N, 1),
 				bit32.band(bit32.lshift(N, 7), 0x100),
@@ -978,7 +978,7 @@ end
 		J += 32
 	end
 	if J < Len then
-		local Acc = buffer.readu32(Src, Off)
+		const Acc = buffer.readu32(Src, Off)
 		for index = J, Len - 1 do
 			buffer.writeu8(Dst, DstOff + index, bit32.band(bit32.rshift(Acc, index - J), 1))
 		end
@@ -1088,7 +1088,7 @@ end
 			buffer.writeu32(Buf, (K + J) * 4, bit32.bxor(Y, T))
 			K = (K + J + 1) - bit32.band(K + J + 1, J)
 		end
-		J = J // 2
+		J //= 2
 		M = bit32.bxor(M, bit32.lshift(M, J))
 	end
 end
@@ -1097,12 +1097,12 @@ end
 	for RB = 0, WS - 1 do
 		for CB = 0, WS - 1 do
 			for index = 0, 31 do
-				local Row = RB * 32 + index
+				const Row = RB * 32 + index
 				buffer.writeu32(Scr, index * 4, if Row < Size then buffer.readu32(Src, (Row * WS + CB) * 4) else 0)
 			end
 			Transpose32(Scr)
 			for index = 0, 31 do
-				local Row = CB * 32 + index
+				const Row = CB * 32 + index
 				if Row < Size then
 					buffer.writeu32(Dst, (Row * WS + RB) * 4, buffer.readu32(Scr, index * 4))
 				end
@@ -1176,7 +1176,7 @@ end
 			E = bit32.band(E, E - 1)
 		end
 	end
-	local Len = Size - PrevPos
+	const Len = Size - PrevPos
 	if Len >= 5 then
 		P += PENALTY_N1 + Len - 5
 	end
@@ -1195,7 +1195,7 @@ end
 			H1 += Size
 		end
 	end
-	local N = H2
+	const N = H2
 	if N > 0 and H3 == N and H4 == 3 * N and H5 == N and H6 == N then
 		if H1 >= 4 * N and H7 >= N then
 			P += PENALTY_N3
@@ -1261,7 +1261,7 @@ end
 	end
 
 	for Col = 0, Size - 1 do
-		local P = RunScan(BT, Col * WS * 4, Size, WS, TailMask, false)
+		const P = RunScan(BT, Col * WS * 4, Size, WS, TailMask, false)
 		Result += P
 	end
 
